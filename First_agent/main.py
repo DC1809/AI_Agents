@@ -1,5 +1,3 @@
-# main2.py content
-
 import os
 from crewai import LLM, Agent, Task, Crew, Process
 from crewai_tools import SerperDevTool
@@ -52,7 +50,7 @@ news_writer = Agent(
 research_task = Task(
     description=(
         "Investigate the latest and most relevant news on {topic}. Ensure the sources are credible."
-        " Summarize the key findings with accuracy and include quantitative data where applicable."
+        " Summarize the key findings accurately and include quantitative data where applicable."
     ),
     expected_output='A detailed report on the latest developments in {topic}',
     tools=[tool],
@@ -63,7 +61,7 @@ research_task = Task(
 # Writing task that adapts to user-chosen output format
 write_task = Task(
     description=(
-        "Craft a {output_format} on {topic}, highlighting the current trends and their implications."
+        "Craft an {output_format} on {topic}, highlighting the current trends and their implications."
         " The content should be clear, engaging, and tailored to the target audience."
     ),
     expected_output='A formatted {output_format} on {topic}, ready for publication.',
@@ -80,7 +78,7 @@ crew = Crew(
     process=Process.sequential,
 )
 
-# Start the crew process with user-specified topic and desired output format
+# Start the crew process with the user-specified topic and desired output format
 inputs = {
     'topic': input("Enter the research topic: "),
     'output_format': input("Enter the desired output format (e.g., blog, article, report): ")
